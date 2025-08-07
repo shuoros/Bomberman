@@ -4,21 +4,22 @@ Single and online multiplayer Bomberman game in java
 ## Run
 Run the MySQL database with docker compose:
 
-´´´
+```
 docker down
 docker compose up -d
-´´´
+```
 
 Give the sun bash the needed privilages:
 
-´´´
+```
 chmod +x run.sh
-´´´
+```
 
 Run the game with:
-´´´
+
+```
 ./run.sh
-´´´
+```
 
 ## Intro Page
 <img width="1774" height="1046" alt="Bildschirmfoto 2025-08-07 um 18 15 44" src="https://github.com/user-attachments/assets/b59e68a0-97f4-40a3-8e75-320188950e4c" />
