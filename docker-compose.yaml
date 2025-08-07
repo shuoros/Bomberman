@@ -1,0 +1,13 @@
+services:
+  bomberman-mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: bomberman_mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=R8D3aSu7wpTJ
+      - MYSQL_USER=bm-dbuser
+      - MYSQL_PASSWORD=tsSS32JO3kxb
+      - MYSQL_DATABASE=bomberman
+    ports:
+      - "127.0.0.1:3306:3306"

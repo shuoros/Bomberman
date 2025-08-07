@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -12,6 +14,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
+
+import DataBase.Connect;
 
 public class LoadPage {
 
@@ -68,6 +72,22 @@ public class LoadPage {
 		progressBar.setBounds(0, 492, 400, 16);
 		frame.getContentPane().add(progressBar);
 		// progressBar.setStringPainted(true);
+		String createTableSQL = "CREATE TABLE IF NOT EXISTS players (" +
+                                    "id INT PRIMARY KEY AUTO_INCREMENT," +
+                                    "username VARCHAR(50) NOT NULL," +
+                                    "password VARCHAR(50) NOT NULL," +
+                                    "email VARCHAR(50) NOT NULL," +
+                                    "pic blob," +
+                                    "highscore DOUBLE," +
+                                    "level INTEGER," +
+                                    "xp DOUBLE" +
+                                    ")";
+		Connection con = Connect.getConnection();
+		try {
+			con.createStatement().executeUpdate(createTableSQL);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		Timer timer = new Timer(25, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				counter++;

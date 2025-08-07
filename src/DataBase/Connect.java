@@ -15,11 +15,11 @@ public class Connect {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost/bomberman", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/bomberman?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true", "bm-dbuser", "tsSS32JO3kxb");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Connection error:");
+			e.printStackTrace();
 		}
-
 		return con;
 	}
 }
